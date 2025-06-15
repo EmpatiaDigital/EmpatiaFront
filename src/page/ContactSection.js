@@ -3,6 +3,7 @@ import { Mail, Phone, MessageCircle, UserPlus } from "lucide-react";
 import "../style/ContactSection.css";
 import contactImage from "../assets/familiaEMPATIA.jpg";
 
+
 export default function ContactSection() {
   return (
     <section className="contact-section">
