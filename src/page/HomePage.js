@@ -5,6 +5,7 @@ import "../style/HomePage.css";
 import fondo1 from "../assets/Portada1.jpg";
 import fondo2 from "../assets/Portada2.jpg";
 import fondo3 from "../assets/Portada3.jpg";
+
 import ModalActividades from "../components/ModalActividades";
 
 const DEFAULT_AVATAR = "https://cdn-icons-png.flaticon.com/512/64/64572.png";
