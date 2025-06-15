@@ -29,7 +29,7 @@ export default function ContactSection() {
             <ul>
               <li>
                 <Phone className="icon" />
-                <span>+54 9 341 123 4567</span>
+                <span>+549341 355-9329</span>
               </li>
               <li>
                 <MessageCircle className="icon" />
@@ -43,14 +43,16 @@ export default function ContactSection() {
               </li>
               <li>
                 <Mail className="icon" />
-                <a href="mailto:sentidospadres@gmail.com">
-                  sentidospadres@gmail.com
+                <a
+                  href="mailto:empatiadigital2025@gmail.com"
+                >
+                  empatiadigital2025@gmail.com
                 </a>
               </li>
 
               <li>
                 <UserPlus className="icon" />
-                <a href="/registro">Hacete socio</a>
+                <a href="/registro">Suscribite</a>
               </li>
             </ul>
           </div>
