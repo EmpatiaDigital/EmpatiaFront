@@ -26,7 +26,7 @@ export default function HomePage() {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch("https://empatia-back.vercel.app//api/posts");
+      const res = await fetch("https://empatia-back.vercel.app/api/posts");
       const data = await res.json();
       setPosts(data);
       setCargando(false);
