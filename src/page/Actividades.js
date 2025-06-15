@@ -9,7 +9,7 @@ const Actividades = () => {
 
   const fetchActividades = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/actividades");
+      const res = await fetch("https://empatia-back.vercel.app/api/actividades");
       if (!res.ok) throw new Error("Error al obtener actividades");
       const data = await res.json();
       setActividades(data);
