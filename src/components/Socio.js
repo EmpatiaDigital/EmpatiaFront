@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Logo from "../assets/Portada1.jpg";
-import LogoSentidos from "../assets/Portada2.png";
+import LogoSentidos from "../assets/Portada2.jpg";
 
 import "../style/Socio.css";
 import html2canvas from "html2canvas";
