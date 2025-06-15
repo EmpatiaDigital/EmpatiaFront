@@ -5,6 +5,89 @@ main {
 html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+/* Contenedor que envuelve todas las imágenes del carrusel */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+/* Imagen con fade */
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.carousel-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-btn.left {
+  left: 20px;
+}
+
+.carousel-btn.right {
+  right: 20px;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dots .dot.active {
+  background-color: red;
+}
 
 /* --- Estructura general --- */
 .homepage {
