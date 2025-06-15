@@ -31,7 +31,7 @@ const PostCompleto = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`https://sentidos-front-lkxh.vercel.app/api/posts/${id}`);
+        const res = await fetch(`https://empatia-back.vercel.app/api/posts/${id}`);
         const data = await res.json();
         setPost(data);
         setCargando(false);
