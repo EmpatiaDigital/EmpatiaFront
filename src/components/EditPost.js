@@ -30,7 +30,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/posts/${postId}`);
+        const res = await fetch(`https://empatia-back.vercel.app/api/posts/${postId}`);
         const data = await res.json();
 
         setTitulo(data.titulo || '');
@@ -55,7 +55,7 @@ const EditPost = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    const res = await fetch('http://localhost:5000/api/upload', {
+    const res = await fetch('https://empatia-back.vercel.app/api/upload', {
       method: 'POST',
       body: formData,
     });
@@ -119,7 +119,7 @@ const EditPost = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${postId}`, {
+      const res = await fetch(`https://empatia-back.vercel.app/api/posts/${postId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(postActualizado),
