@@ -38,7 +38,7 @@ export default function Descargar() {
 
   const cargarMateriales = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/descarga");
+      const res = await fetch("https://empatia-back.vercel.app/api/descarga");
       const data = await res.json();
       setMaterialDB(data);
     } catch {
@@ -92,7 +92,7 @@ export default function Descargar() {
       }
 
       try {
-        const res = await fetch("http://localhost:5000/api/descarga", {
+        const res = await fetch("https://empatia-back.vercel.app/api/descarga", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(nuevo),
@@ -124,7 +124,7 @@ export default function Descargar() {
     if (!confirmar.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/descarga/${id}`, {
+      const res = await fetch(`https://empatia-back.vercel.app/api/descarga/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
