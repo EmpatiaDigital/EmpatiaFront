@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, Phone, MessageCircle, UserPlus } from "lucide-react";
 import "../style/ContactSection.css";
-import contactImage from "../assets/familiaEMPATIA.jpg"; // Ajusta la ruta si hace falta
+import contactImage from "../assets/familiaEMPATIA.jpg";
 
 export default function ContactSection() {
   return (
