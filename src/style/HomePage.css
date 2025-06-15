@@ -86,7 +86,7 @@ html {
 }
 
 .carousel-dots .dot.active {
-  background-color: red;
+  background-color:rgb(37, 13, 187);
 }
 
 /* --- Estructura general --- */
