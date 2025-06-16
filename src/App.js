@@ -7,6 +7,12 @@ import withReactContent from "sweetalert2-react-content";
 // Importaciones de páginas y componentes
 import HomePage from './page/HomePage.js'; 
 import Post from './page/Post.js'; 
+import UserData from './page/UserData.js'; 
+import Actividades from './page/Actividades.js';
+import ContactSection from './page/ContactSection.js';
+import Descargar from './page/Descargar.js';
+
+//COMPONENTES DE ACA PARA ABAJO
 import Login from './components/Login';
 import Register from './components/Register';
 import Reestablecer from './components/Reestablecer.js';
@@ -15,13 +21,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CrearPost from './components/CrearPost.js';
 import ActividadesList from './components/ActividadesList.js';
-import Actividades from './page/Actividades.js';
+import UserActividad from './components/UserActividad';
 import PostCompleto from "./components/PostCompleto";
 import MyPost from "./components/MyPost.js";
 import EditPost from "./components/EditPost.js";
 import CongelarUsuarios from "./components/CongelarUsuarios.js";
-import ContactSection from './page/ContactSection.js';
-import Descargar from './page/Descargar.js';
 
 const MySwal = withReactContent(Swal);
 
@@ -99,10 +103,12 @@ function AppContent() {
 
   return (
     <>
+     <UserActividad />
       <Navbar />
       {!loading && (
         <Routes>
-          <Route path="/reestablecer" element={<Reestablecer />} />
+          {/* <Route path="/reestablecer" element={<Reestablecer />} /> */}
+          <Route path="/data-user" element={<UserData />} />
           <Route path="/registro" element={<Register />} />
           <Route path="/descargas" element={<Descargar />} />
           <Route path="/login" element={<Login />} />
