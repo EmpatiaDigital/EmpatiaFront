@@ -75,14 +75,19 @@ export default function Descargar() {
         filename: archivo.name,
         type: archivo.name.toLowerCase().includes("libro") ? "libro" : "pdf",
         portada:
-          "https://picsum.photos/300/200?random=" + Math.floor(Math.random() * 1000),
+          "https://picsum.photos/300/200?random=" +
+          Math.floor(Math.random() * 1000),
         fileData: base64,
       };
 
       // ¿Es uno de los dos destacados?
       const esDestacado = destacados.find((d) => d.name === archivo.name);
       if (esDestacado) {
-        Swal.fire("Reemplazo local", "Se reemplazó un material destacado.", "info");
+        Swal.fire(
+          "Reemplazo local",
+          "Se reemplazó un material destacado.",
+          "info"
+        );
         destacados[destacados.findIndex((d) => d.name === archivo.name)] = {
           ...destacados.find((d) => d.name === archivo.name),
           ...nuevo,
@@ -133,6 +138,33 @@ export default function Descargar() {
       }
     } catch {
       Swal.fire("Error", "No se pudo eliminar", "error");
+    }
+  };
+
+  const registrarActividad = async (evento, nombre) => {
+    const visitorId =
+      localStorage.getItem("visitorId") ||
+      (() => {
+        const id = crypto.randomUUID();
+        localStorage.setItem("visitorId", id);
+        return id;
+      })();
+
+    const actividad = {
+      visitorId,
+      evento,
+      titulo: nombre,
+      timestamp: new Date().toISOString(),
+    };
+
+    try {
+      await fetch("https://empatia-back.vercel.app/api/user-actividad", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(actividad),
+      });
+    } catch (error) {
+      console.error("Error al registrar actividad:", error);
     }
   };
 
@@ -187,25 +219,13 @@ export default function Descargar() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="post-content-overlay">
-                <h3 className="titulo-guia">
+              <div className="post-content-overlay-descargar">
+                <h3 className="autor">{item.title}</h3>
+                <p className="titulo-guia">
                   {item.type === "libro"
                     ? "Comprá el Libro"
                     : "Descargá el PDF"}
-                </h3>
-                <p className="autor">{item.title}</p>
-                {item.type === "libro" ? (
-                  <button
-                    className="btn-ver-mas"
-                    onClick={() => window.open(archivoBase64, "_blank")}
-                  >
-                    Comprar Libro
-                  </button>
-                ) : (
-                  <a href={archivoBase64} download={item.filename || item.name}>
-                    <button className="btn-ver-mas">Descargar</button>
-                  </a>
-                )}
+                </p>
 
                 {user?.role === "superadmin" && !esLocal && (
                   <button
@@ -215,6 +235,32 @@ export default function Descargar() {
                   >
                     Eliminar
                   </button>
+                )}
+              </div>
+              <div>
+                {item.type === "libro" ? (
+                  <a
+                    href={archivoBase64}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ver-mas"
+                    onClick={() =>
+                      registrarActividad("PDFlibroDescarga", item.title)
+                    }
+                  >
+                    Comprar Libro
+                  </a>
+                ) : (
+                  <a
+                    href={archivoBase64}
+                    download={item.filename || item.name}
+                    className="btn-ver-mas"
+                    onClick={() =>
+                      registrarActividad("PDFguiaDescarga", item.title)
+                    }
+                  >
+                    Descargar
+                  </a>
                 )}
               </div>
             </div>
@@ -228,8 +274,7 @@ export default function Descargar() {
         </button>
         <span className="contador-materiales">
           Viendo: {visibles.length > 0 ? (pagina - 1) * porPagina + 1 : 0}–
-          {Math.min(pagina * porPagina, filtrados.length)} de{" "}
-          {filtrados.length}{" "}
+          {Math.min(pagina * porPagina, filtrados.length)} de {filtrados.length}{" "}
           {tipoFiltro === "todos"
             ? "materiales"
             : tipoFiltro === "libro"
