@@ -37,7 +37,7 @@ const Actividades = () => {
   };
 
   const handleCompartir = (titulo, id) => {
-    const url = `http://localhost:3000/actividades`;
+    const url = `https://empatia-front.vercel.app/actividades`;
     const texto = `Este evento va a estar genial, ¿querés asistir conmigo?\n${titulo}\n${url}`;
     if (navigator.share) {
       navigator
@@ -55,7 +55,7 @@ const Actividades = () => {
 
   const handleAsistir = (titulo, fecha) => {
     const mensaje = `Me gustaría asistir a este evento: ${titulo} el día ${fecha}`;
-    const telefono = "543462529718";
+    const telefono = "543413559329";
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
   };
