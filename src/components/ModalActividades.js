@@ -24,7 +24,6 @@ function ModalActividades() {
       });
   }, []);
 
-
   const formatearFecha = (fecha) => {
     const fechaFormateada = new Date(fecha).toLocaleDateString("es-AR", {
       weekday: "long",
@@ -45,9 +44,8 @@ function ModalActividades() {
   return (
     <div className="modal-overlay">
       <div className="modal-card">
-  <div className="modal-titulo">
-        <h1>{actividad.titulo}</h1>
-
+        <div className="modal-titulo">
+          <h1>{actividad.titulo}</h1>
         </div>
         <button className="modal-close" onClick={cerrarModal}>
           ✕
@@ -62,17 +60,17 @@ function ModalActividades() {
             src={actividad.imagen || "https://via.placeholder.com/300x200"}
             alt={actividad.titulo}
           />
-          <div className="modal-card-actions">
-            <button
-              className="btn-ver-mas"
-              onClick={() => {
-                cerrarModal();
-                window.location.href = "https://empatia-front.vercel.app/actividades";
-              }}
-            >
-              Ver más
-            </button>
-          </div>
+        </div>
+        <div className="modal-card-actions">
+          <button
+            className="btn-ver-mas"
+            onClick={() => {
+              cerrarModal();
+              window.location.href = "https://empatia-front.vercel.app/actividades";
+            }}
+          >
+            Ver más
+          </button>
         </div>
       </div>
     </div>
