@@ -24,12 +24,15 @@ function ModalActividades() {
       });
   }, []);
 
+
   const formatearFecha = (fecha) => {
-    return new Date(fecha).toLocaleDateString("es-AR", {
+    const fechaFormateada = new Date(fecha).toLocaleDateString("es-AR", {
+      weekday: "long",
       day: "2-digit",
       month: "long",
       year: "numeric",
     });
+    return fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
   };
 
   const cerrarModal = () => {
@@ -42,16 +45,17 @@ function ModalActividades() {
   return (
     <div className="modal-overlay">
       <div className="modal-card">
-        <div className="modal-titulo">
-          <h2>Veni a este evento</h2>
+  <div className="modal-titulo">
+        <h1>{actividad.titulo}</h1>
+
         </div>
         <button className="modal-close" onClick={cerrarModal}>
           ✕
         </button>
 
         <div className="title-content">
-          <h2>{actividad.titulo}</h2>
-          <h2>{actividad.hora} hs</h2>
+          <h2>Acercate el {formatearFecha(actividad.fecha)}</h2>
+          <h3>{actividad.hora} hs</h3>
         </div>
         <div className="modal-card-img">
           <img
