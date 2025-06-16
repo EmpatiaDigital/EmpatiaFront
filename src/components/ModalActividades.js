@@ -63,7 +63,7 @@ function ModalActividades() {
               className="btn-ver-mas"
               onClick={() => {
                 cerrarModal();
-                window.location.href = "http://localhost:3000/actividades";
+                window.location.href = "https://empatia-front.vercel.app/actividades";
               }}
             >
               Ver más
