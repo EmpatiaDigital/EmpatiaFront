@@ -1,4 +1,7 @@
 /* CONTENEDOR PRINCIPAL */
+body{
+  margin-top:150px;
+}
 .actividades-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -92,6 +95,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  
 }
 
 .actividad-card:hover {
@@ -209,9 +213,7 @@
 
 /* RESPONSIVO */
 @media (max-width: 480px) {
-  .actividad-card {
-    margin: 15px;
-  }
+  
 
   .card-content h2 {
     font-size: 1.2rem;
