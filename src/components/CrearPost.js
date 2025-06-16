@@ -86,7 +86,7 @@ const CrearPost = () => {
 
   const guardarPost = async () => {
     const contenido = editor?.getHTML() || "";
-
+  
     if (
       !titulo ||
       !autor ||
@@ -101,11 +101,10 @@ const CrearPost = () => {
       });
       return;
     }
-
+  
     const avatar = localStorage.getItem("avatar") || "";
-
     const PostId = localStorage.getItem("userId");
-    
+  
     const nuevoPost = {
       titulo,
       autor,
@@ -118,17 +117,29 @@ const CrearPost = () => {
       categoria,
       fecha: new Date().toISOString(),
       avatar,
-      PostId, 
+      PostId,
     };
-    
-    
+  
     try {
+      // Mostrar alerta con loading
+      const loadingSwal = Swal.fire({
+        title: "Subiendo post...",
+        html: "Por favor esperá un momento.",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+  
       const res = await fetch("https://empatia-back.vercel.app/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevoPost),
       });
-
+  
+      Swal.close(); // cerrar loading
+  
       if (res.ok) {
         Swal.fire({
           icon: "success",
@@ -136,8 +147,11 @@ const CrearPost = () => {
           text: "Tu post se publicó correctamente.",
           timer: 2000,
           showConfirmButton: false,
+        }).then(() => {
+          window.location.reload();
         });
-
+      
+  
         // Limpiar campos
         setTitulo("");
         setAutor("");
@@ -156,6 +170,7 @@ const CrearPost = () => {
         });
       }
     } catch (err) {
+      Swal.close(); // asegurarse de cerrar si hay error
       console.error(err);
       Swal.fire({
         icon: "error",
@@ -164,6 +179,7 @@ const CrearPost = () => {
       });
     }
   };
+  
 
   return (
     <div className="editor-container">
@@ -340,28 +356,6 @@ const CrearPost = () => {
 
       {cargando && <p className="uploading-text">Subiendo imágenes...</p>}
 
-      {/* <div className="preview-images">
-        {imagenes.map((url, i) => (
-          <div key={i} className="image-block">
-            <img
-              src={url}
-              alt={`img-${i}`}
-              style={{ maxWidth: "600px", maxHeight: "1200px" }}
-            />
-            <input
-              type="text"
-              placeholder="Epígrafe de la imagen..."
-              value={epigrafes[i]}
-              onChange={(e) => {
-                const nuevos = [...epigrafes];
-                nuevos[i] = e.target.value;
-                setEpigrafes(nuevos);
-              }}
-              className="epigrafe-input"
-            />
-          </div>
-        ))}
-      </div> */}
 
       <button onClick={guardarPost} className="publish-button" type="button">
         🚀 Publicar
