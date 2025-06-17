@@ -1,11 +1,14 @@
- /* Footer mejorado, con fondo más oscuro y contraste */
+
+
+
+
+/* Footer mejorado, con fondo más oscuro y contraste */
 
  .footer-container {
   background: linear-gradient(135deg, #324a67, #2a3e58); /* azul grisáceo oscuro */
-  padding: 2.5rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 2rem;
   border-top: 4px solid #a7c7e7; /* línea superior celeste pastel claro */
@@ -15,6 +18,7 @@
 }
 
 .footer-links {
+  padding: 1.5rem;
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
@@ -41,7 +45,7 @@
 .footer-socials {
   display: flex;
   gap: 2.5rem;
-  justify-content: flex-end;
+  justify-content: center;
   flex: 1;
   min-width: 220px;
 }
