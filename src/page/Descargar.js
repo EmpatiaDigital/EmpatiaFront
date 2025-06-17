@@ -263,6 +263,35 @@ export default function Descargar() {
                   </a>
                 )}
               </div>
+
+                  <div
+  style={{
+    backgroundColor: "#f0f8ff",
+    borderLeft: "4px solid #007acc",
+    padding: "1em",
+    marginTop: "1em",
+    fontStyle: "italic",
+    color: "#000",
+  }}
+>
+  <strong>Nota:</strong>{" "}
+  <em>
+    Este contenido tiene fines educativos y no sustituye asesoramiento clínico o
+    médico profesional.
+  </em>{" "}
+  <a
+    href="/descargo-de-responsabilidad"
+    style={{
+      fontStyle: "normal",
+      textDecoration: "underline",
+      color: "#007acc",
+      marginLeft: "4px",
+    }}
+  >
+    Ver más
+  </a>
+</div>
+
             </div>
           );
         })}
