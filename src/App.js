@@ -13,6 +13,7 @@ import ContactSection from './page/ContactSection.js';
 import Descargar from './page/Descargar.js';
 
 //COMPONENTES DE ACA PARA ABAJO
+import Descargo from './components/Descargo.js';
 import Login from './components/Login';
 import Register from './components/Register';
 import Reestablecer from './components/Reestablecer.js';
@@ -124,6 +125,7 @@ function AppContent() {
           <Route path="/actividades" element={<Actividades />} />
           <Route path="/congelar" element={<CongelarUsuarios />} />
           <Route path="/post" element={<Post />} />
+          <Route path="/descargo-de-responsabilidad" element={<Descargo />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       )}
