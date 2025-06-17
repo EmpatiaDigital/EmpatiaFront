@@ -73,7 +73,7 @@ export default function Navbar() {
           <Link to="/post" onClick={handleLinkClick}>Post</Link>
         </li>
         <li>
-          <Link to="/descargas" onClick={handleLinkClick}>Descargar</Link>
+          <Link to="/descargas" onClick={handleLinkClick}>Guía gratis</Link>
         </li>
         {user ? (
           <>
