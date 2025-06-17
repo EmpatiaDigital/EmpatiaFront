@@ -21,7 +21,7 @@ const destacados = [
   },
   {
     type: "libro",
-    title: "Empatía Digital: Crianza en Tiempos de Pantalla",
+    title: "Empatía Digital: Cuidar en Tiempos Digitales",
     file: "https://tulinkdelibro.com",
     portada: portadaLibro,
     name: "Libro Empatía Digital",
