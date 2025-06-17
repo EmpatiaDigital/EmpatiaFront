@@ -220,12 +220,43 @@ export default function Descargar() {
               }}
             >
               <div className="post-content-overlay-descargar">
-                <h3 className="autor">{item.title}</h3>
-                <p className="titulo-guia">
-                  {item.type === "libro"
-                    ? "Comprá el Libro"
-                    : "Descargá el PDF"}
-                </p>
+              <div>
+                  <h3 className="autor">{item.title}</h3>
+                  <br></br>
+                  <hr
+                    style={{
+                      border: "none",
+                      height: "3px", // Grosor
+                      backgroundColor: "#fff", // Color
+                      margin: "2rem 0", // Separación arriba y abajo
+                      width: "100%", // Ancho relativo
+                    }}
+                  />
+                  {item.type === "libro" ? (
+                    <a
+                      href={archivoBase64}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ver-mas"
+                      onClick={() =>
+                        registrarActividad("PDFlibroDescarga", item.title)
+                      }
+                    >
+                      Comprar Libro
+                    </a>
+                  ) : (
+                    <a
+                      href={archivoBase64}
+                      download={item.filename || item.name}
+                      className="btn-ver-mas"
+                      onClick={() =>
+                        registrarActividad("PDFguiaDescarga", item.title)
+                      }
+                    >
+                      Descargar
+                    </a>
+                  )}
+                </div>
 
                 {user?.role === "superadmin" && !esLocal && (
                   <button
@@ -237,32 +268,7 @@ export default function Descargar() {
                   </button>
                 )}
               </div>
-              <div>
-                {item.type === "libro" ? (
-                  <a
-                    href={archivoBase64}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-ver-mas"
-                    onClick={() =>
-                      registrarActividad("PDFlibroDescarga", item.title)
-                    }
-                  >
-                    Comprar Libro
-                  </a>
-                ) : (
-                  <a
-                    href={archivoBase64}
-                    download={item.filename || item.name}
-                    className="btn-ver-mas"
-                    onClick={() =>
-                      registrarActividad("PDFguiaDescarga", item.title)
-                    }
-                  >
-                    Descargar
-                  </a>
-                )}
-              </div>
+            
 
                   <div
   style={{
