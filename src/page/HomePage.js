@@ -133,7 +133,7 @@ export default function HomePage() {
                       backgroundRepeat: "no-repeat",
                     }}
                   >
-                    <div className="post-content-overlay">
+                    <div className="post-content-overlay-home">
                       <img
                         src={post.avatar || DEFAULT_AVATAR}
                         alt="avatar"
