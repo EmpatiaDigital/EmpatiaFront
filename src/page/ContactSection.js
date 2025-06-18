@@ -28,10 +28,6 @@ export default function ContactSection() {
             <div className="line"></div>
             <ul>
               <li>
-                <Phone className="icon" />
-                <span>+549341 355-9329</span>
-              </li>
-              <li>
                 <MessageCircle className="icon" />
                 <a
                   href="https://wa.me/5493411234567"
