@@ -87,7 +87,39 @@ const PostCompleto = () => {
       </p>
   
   <div className="imagen-fija-1200" dangerouslySetInnerHTML={{ __html: post.contenido }} />
-        
+         <div
+        style={{
+          borderLeft: "30px solid #42a5f5",
+          backgroundColor: " #194542", 
+          justifyContent: "center", // Centra horizontalmente el contenido
+          alignItems: "center", // Centra verticalmente
+          borderRadius: "6px",
+          padding: "0.75rem 1rem",
+          marginBottom: "0.5rem",
+          fontSize: "1.5rem",
+          fontWeight: "500",
+          display: "flex",
+        }}
+      >
+        <a
+          style={{
+            borderBottom: "2px solid white", // Línea inferior blanca
+            borderRadius: "6px",
+            padding: "0.75rem 1rem",
+            marginBottom: "0.5rem",
+            fontSize: "1.5rem",
+            fontWeight: "500",
+            display: "flex",
+            textDecoration: "none", // Sin subrayado clásico
+            color: "white", // Color de texto blanco
+            backgroundColor: "transparent", // Fondo transparente
+            cursor: "pointer", // Cursor tipo manito
+          }}
+          href={`https://www.empatiadigital.com.ar/descargas`}
+        >
+          Descarga la guía PDF GRATIS
+        </a>
+      </div>
       <div className="share-section">
         <h3>Compartir en redes:</h3>
         <div className="share-buttons">
