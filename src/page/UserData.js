@@ -96,14 +96,24 @@ const UserData = () => {
         <strong>Posts compartidos:</strong> {balance.postsCompartidos}
       </p>
 
-      <h3>Posts más visitados (Top 3)</h3>
+       <h3>Posts más visitados (Top 3)</h3>
       <ul style={{ paddingLeft: 0 }}>
         {balance.postsMasVisitados.length > 0 ? (
-          balance.postsMasVisitados.map(({ postId, visitas }, index) => {
+          balance.postsMasVisitados.map(({ postId, visitas}, index) => {
+        
+
+            // Mostrar todo el array data legible
+            console.log(
+              "Data completa desde backend:",
+              JSON.stringify(data, null, 2)
+            );
+
+            // Buscar el objeto correspondiente en data
             const actividad = data.find((a) => a.postId === postId && a.url);
+
             return (
               <li
-                key={postId}
+              key={`${postId}`}
                 style={{
                   backgroundColor: "#f5f5f5",
                   padding: "0.75rem 1rem",
@@ -118,8 +128,9 @@ const UserData = () => {
                 }}
               >
                 <a
-                  href={actividad?.url || "#"}
-                  target="_blank"
+                  href={
+                    actividad?.url || `http://localhost:3000/post/${postId}`
+                  } // si no hay `actividad.url`, usar un fallback por id
                   rel="noopener noreferrer"
                   style={{
                     textDecoration: "none",
@@ -131,7 +142,7 @@ const UserData = () => {
                   onMouseOver={(e) => (e.target.style.color = "#1769aa")}
                   onMouseOut={(e) => (e.target.style.color = "#2196f3")}
                 >
-                  {index + 1}. Ir al post
+                  {index + 1}. Ir al post 
                 </a>
                 <span
                   style={{
