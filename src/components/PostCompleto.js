@@ -14,8 +14,9 @@ const PostCompleto = () => {
 
   const currentUrl = `${window.location.origin}/post/${id}`;
   const mensaje = encodeURIComponent(
-    `Encontré este post que te puede interesar: ${currentUrl}`
-  );
+  `"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`
+);
+
   useEffect(() => {
     const enlaces = document.querySelectorAll('.post-content a');
   
