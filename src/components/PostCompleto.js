@@ -17,12 +17,13 @@ const PostCompleto = () => {
   // ? encodeURIComponent(`"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`)
   // : "";
 const currentUrl = `https://empatia-back.vercel.app/preview/post/${id}`; // este va para preview
-const frontendUrl = `https://empatia-front.vercel.app/post/${id}`; // este es el real
+// const frontendUrl = `https://empatia-front.vercel.app/post/${id}`; // este es el real
 
-const mensaje = encodeURIComponent(
-  `📚 Leé este post en Empatía Digital:\n${frontendUrl}`
-);
-
+const mensaje = post
+  ? encodeURIComponent(
+      `*${post.titulo}*\n${post.epigrafe || ''}\n\nLeé este post en Empatía Digital:\n${currentUrl}`
+    )
+  : "";
 
   useEffect(() => {
     const enlaces = document.querySelectorAll('.post-content a');
