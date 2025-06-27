@@ -21,7 +21,34 @@ const backendUrl = "https://empatia-back.vercel.app";
 const currentUrl = `${backendUrl}/post/${id}`;
 
   const mensaje = post
-  ? encodeURIComponent(`Leé este post en Empatía Digital: ${currentUrl}`)
+  ? encodeURIComponent(
+  `<!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <title>${post.titulo}</title>
+        <meta name="description" content="${post.epigrafe || ''}" />
+        <meta property="og:title" content="${post.titulo}" />
+        <meta property="og:description" content="${post.epigrafe || ''}" />
+        <meta property="og:image" content="${post.portada}" />
+        <meta property="og:url" content="${frontendUrl}" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="${post.titulo}" />
+        <meta name="twitter:description" content="${post.epigrafe || ''}" />
+        <meta name="twitter:image" content="${post.portada}" />
+      </head>
+      <body>
+        <script>
+          // Redirección automática al frontend
+          window.location.href = "${frontendUrl}";
+        </script>
+        <noscript>
+          <meta http-equiv="refresh" content="0; url=${frontendUrl}" />
+        </noscript>
+        <h1>Redirigiendo a Empatía Digital...</h1>
+      </body>
+      </html>`)
   : "";
 
   useEffect(() => {
