@@ -6,7 +6,6 @@
 // import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 // const DEFAULT_AVATAR = "https://cdn-icons-png.flaticon.com/512/64/64572.png";
-
 // const PostCompleto = () => {
 //   const { id } = useParams();
 //   const [post, setPost] = useState(null);
