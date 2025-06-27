@@ -17,7 +17,7 @@ const PostCompleto = () => {
   // ? encodeURIComponent(`"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`)
   // : "";
 
-const backendUrl = "https://empatia-front.vercel.app";
+const backendUrl = "https://empatia-back.vercel.app";
 const currentUrl = `${backendUrl}/post/${id}`;
 
   const mensaje = post
