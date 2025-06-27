@@ -16,35 +16,10 @@ const PostCompleto = () => {
   // const mensaje = post
   // ? encodeURIComponent(`"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`)
   // : "";
-const currentUrl = `https://empatia-back.vercel.app/preview/post/${id}`; // este va para preview
-
-const mensaje = post
-  ? encodeURIComponent(
-      `*${post.titulo}*\n${post.epigrafe || ''}\n\n<head>
-        <meta charset="UTF-8" />
-        <title>${post.titulo}</title>
-        <meta name="description" content="${post.epigrafe || ''}" />
-        <meta property="og:title" content="${post.titulo}" />
-        <meta property="og:description" content="${post.epigrafe || ''}" />
-        <meta property="og:image" content="${post.portada}" />
-        <meta property="og:url" content="${frontendUrl}" />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="${post.titulo}" />
-        <meta name="twitter:description" content="${post.epigrafe || ''}" />
-        <meta name="twitter:image" content="${post.portada}" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>
-          body { font-family: sans-serif; padding: 2rem; }
-          .card { border: 1px solid #ccc; padding: 2rem; border-radius: 12px; max-width: 600px; margin: auto; }
-          .card img { max-width: 100%; border-radius: 8px; }
-          .card h1 { font-size: 1.5rem; margin-top: 1rem; }
-          .card p { font-size: 1rem; color: #444; }
-          .card a { display: inline-block; margin-top: 1rem; text-decoration: none; color: white; background: #0077cc; padding: 0.5rem 1rem; border-radius: 6px; }
-        </style>
-      </head>`
-    )
-  : "";
+const currentUrl = `https://empatia-back.vercel.app/preview/post/${id}`;
+const mensaje = encodeURIComponent(
+  `*${post.titulo}*\n${post.epigrafe || ''}\n\nLeé este post en Empatía Digital:\n${currentUrl}`
+);
 
   useEffect(() => {
     const enlaces = document.querySelectorAll('.post-content a');
