@@ -18,11 +18,12 @@ const PostCompleto = () => {
   // : "";
 
 const backendUrl = "https://empatia-back.vercel.app";
-const currentUrl = `${backendUrl}/post/${id}`;
+const frontendUrl = `https://empatia-front.vercel.app/post/${id}`;
 
-  const mensaje = post
+const mensaje = post
   ? encodeURIComponent(
-  `Leé este post en Empatía Digital: ${currentUrl}`)
+      `📚 ${post.titulo}\n\nLeé este post en Empatía Digital:\n${frontendUrl}\n\n(previsualización generada por ${backendUrl}/post/${id})`
+    )
   : "";
 
   useEffect(() => {
