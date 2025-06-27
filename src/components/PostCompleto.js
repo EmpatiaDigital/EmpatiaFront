@@ -12,11 +12,17 @@ const PostCompleto = () => {
   const [post, setPost] = useState(null);
   const [cargando, setCargando] = useState(true);
 
-  const currentUrl = `${window.location.origin}/post/${id}`;
+  // const currentUrl = `${window.location.origin}/post/${id}`;
+  // const mensaje = post
+  // ? encodeURIComponent(`"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`)
+  // : "";
+
+const backendUrl = "https://empatia-back.vercel.app";
+const currentUrl = `${backendUrl}/post/${id}`;
+
   const mensaje = post
   ? encodeURIComponent(`"${post.titulo}" – Leé este post en Empatía Digital: ${currentUrl}`)
   : "";
-
 
   useEffect(() => {
     const enlaces = document.querySelectorAll('.post-content a');
